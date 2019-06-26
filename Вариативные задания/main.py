@@ -7,10 +7,10 @@ from itertools import count, islice
 def fib_infinite_iterator(n):
     if n > 0:
         if n == 1:
-            print('[0]')
+            return [0]
         elif n > 1:
             res = [0, 1, ]
-            for i in islice(count(2), n):
+            for i in islice(count(2), n-2):
                 res.append(res[i - 1] + res[i - 2])
             return res
     else:
