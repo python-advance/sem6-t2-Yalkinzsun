@@ -1,7 +1,7 @@
 def fibonacci_v1(n):
     if n > 0:
         if n == 1:
-            print('[0]')
+            return [0]
         elif n > 1:
             res = [0] * n
             res[1] = 1
@@ -15,7 +15,7 @@ def fibonacci_v1(n):
 def fibonacci_v2(n):
     if n > 0:
         if n == 1:
-            print('[0]')
+            return [0]
         elif n > 1:
             res = [0, 1, ]
             for i in range(2, n):
@@ -34,15 +34,19 @@ def fibonacci_generator():  # генератор - итератор
 
 
 def fibonacci_iterator(n):
-    it = iter(list(range(2, n)))
-    res = [0, 1, ]
-    while True:
-        try:
-            x = next(it)
-        except StopIteration:
-            break
-        res.append(res[x - 1] + res[x - 2])
-    return res
+    if n > 0:
+        if n == 1:
+            return [0]
+        elif n > 1:
+            it = iter(list(range(2, n)))
+            res = [0, 1, ]
+            while True:
+                try:
+                    x = next(it)
+                except StopIteration:
+                    break
+                res.append(res[x - 1] + res[x - 2])
+            return res
 
 
 if __name__ == "__main__":
